@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <div class="container" align="center">
+
+    <h1>Django Admin</h1>
+    <a href="/todo/add" class='btn btn-primary'>Add new task</a>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Heading</th>
+      <th scope="col">Detail</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for d in data%}
+    <tr>
+      <td>{{d.id}}</td>
+      <td>{{d.heading}}</td>
+      <td>{{d.detail}}</td>
+      <td>{{d.date}}</td>
+      <td><a href="/todo/update/{{d.id}}"class='btn btn-warning'><i class="bi bi-pencil-fill"></i></a></td>
+      <td><a href="/todo/delete/{{d.id}}"class='btn btn-danger'><i class="bi bi-trash2-fill"></i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
